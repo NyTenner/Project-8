@@ -1,10 +1,12 @@
 import java.io.PrintWriter;
+import java.util.ConcurrentModificationException;
 import java.util.ListIterator;
 import java.util.Random;
 import java.util.function.Predicate;
 
 /**
  * Some simple experiments with SimpleLists
+ * @author Nye Tenerelli
  */
 public class SimpleListExpt {
   // +--------+------------------------------------------------------
@@ -172,6 +174,38 @@ public class SimpleListExpt {
     } // try/catch
     pen.println();
   } // expt4(PrintWriter, SimpleList<String>, int)
+
+
+  static void expt5(PrintWriter pen, SimpleList<String> lst) throws Exception {
+    pen.println("Experiment 5: Remove alternating elements, moving backwards.");
+    final Counter counter = new Counter();
+    addStrings(pen, lst, new String[] {"A", "B", "C", "D", "E", "F", "G"});
+    removeBackwardExpt(pen, lst, (str) -> (counter.get() % 2) == 0);
+    pen.println();
+  } // expt2(PrintWriter, SimpleList<String>)
+
+  static void expt6(PrintWriter pen, SimpleList<String> lst) throws Exception {
+    pen.println("Experiment 6: Remove random elements, moving backwards.");
+    addStrings(pen, lst, new String[] {"A", "B", "C", "D", "E", "F", "G"});
+    removeBackwardExpt(pen, lst, (str) -> rand.nextInt(2) == 0);
+    pen.println();
+  } // expt3(PrintWriter, SimpleList<String>
+
+  static void expt7(PrintWriter pen, SimpleList<String> lst) throws Exception {
+
+    ListIterator<String> iter1 = lst.listIterator();
+    ListIterator<String> iter2 = lst.listIterator();
+    pen.println("Experiment 7: Testing failFast.");
+    add(pen, iter1, "cat");
+    try {
+      add(pen, iter2, "cat");
+      pen.println("failFast not working ");
+    } catch (ConcurrentModificationException e) {
+      pen.println("failFast working " + e.toString());
+    } // try/catch
+    pen.println();
+  } // expt4(PrintWriter, SimpleList<String>, int)
+
 
 } // class SimpleListExpt
 
