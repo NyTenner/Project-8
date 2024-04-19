@@ -4,8 +4,9 @@ import java.util.ListIterator;
 import java.util.Random;
 import java.util.function.Predicate;
 
-/**
+/*
  * Some simple experiments with SimpleLists
+ * @author Samuel A. Rebelsky
  * @author Nye Tenerelli
  */
 public class SimpleListExpt {

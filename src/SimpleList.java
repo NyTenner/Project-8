@@ -1,6 +1,9 @@
 import java.util.Iterator;
 import java.util.ListIterator;
-
+/**
+ * A class that allows us to access the iterator.
+ * @author Samuel A. Rebelsky??
+ */
 /**
  * Very simple lists.
  */

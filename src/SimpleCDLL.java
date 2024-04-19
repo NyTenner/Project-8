@@ -3,11 +3,15 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
+
+
 /**
- * Simple doubly-linked lists.
+ * circular doubly-linked lists that supportsFail Fast policy.
  *
- * These do *not* (yet) support the Fail Fast policy.
+ * @author Samuel A. Rebelsky
+ * @author Nye Tenerelli
  */
+
 public class SimpleCDLL<T> implements SimpleList<T> {
   // +--------+------------------------------------------------------------
   // | Fields |
